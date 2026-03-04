@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creme Dental Bolsonaro – Para o Brasil voltar a sorrir</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ─────────────────────────────────────
+       VARIÁVEIS — tema claro / off-white
+    ───────────────────────────────────── */
+    :root {
+      --bg-main:    #f4f7f2;
+      --bg-alt:     #eaf1e6;
+      --bg-card:    #ffffff;
+      --bg-cta:     #0d2015;
+      --green:      #009c3b;
+      --green-l:    #00b840;
+      --green-d:    #006929;
+      --green-pale: #e6f5ec;
+      --gold:       #FEDF00;
+      --gold-d:     #c9a800;
+      --blue:       #002776;
+      --ink:        #122019;
+      --ink-mid:    #3d5a44;
+      --ink-soft:   #6b8a72;
+      --border:     #cde3d3;
+      --shadow:     0 2px 16px rgba(0,60,20,.07);
+      --shadow-lg:  0 8px 36px rgba(0,60,20,.12);
+      --radius:     10px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--bg-main);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ── TICKER ── */
+    .ticker {
+      background: var(--green);
+      color: #fff;
+      font-weight: 900;
+      font-size: .7rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 7px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-track {
+      display: inline-flex;
+      gap: 3rem;
+      animation: ticker 26s linear infinite;
+    }
+    @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    /* ── NAV ── */
+    nav {
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: .85rem 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--green);
+      box-shadow: 0 2px 12px rgba(0,60,20,.06);
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: .07em;
+      color: var(--ink);
+    }
+    .nav-logo em { font-style: normal; color: var(--green); }
+    .nav-cta {
+      background: var(--green);
+      color: #fff;
+      font-weight: 700;
+      font-size: .82rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .52rem 1.25rem;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--green-l); }
+
+    /* ═══════════════════════════════════════
+       HERO — fundo OFF-WHITE
+    ═══════════════════════════════════════ */
+    .hero {
+      background: var(--bg-main);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+      min-height: 88vh;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 2px solid var(--border);
+    }
+    /* decoração sutil no fundo claro */
+    .hero::before {
+      content:'';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 100% 50%, rgba(0,156,59,.08) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 60% at 0% 100%, rgba(0,39,118,.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-text {
+      position: relative;
+      padding: 4rem 3rem 4rem 6vw;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      font-weight: 900;
+      font-size: .68rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      padding: .34rem .9rem;
+      border-radius: 3px;
+      margin-bottom: 1.3rem;
+      width: fit-content;
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 5.5vw, 5.2rem);
+      line-height: .95;
+      letter-spacing: .03em;
+      color: var(--ink);
+      margin-bottom: .8rem;
+    }
+    .hero h1 em { font-style: normal; color: var(--green); }
+    .hero-slogan {
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--green-d);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--ink-mid);
+      max-width: 440px;
+      line-height: 1.65;
+      margin-bottom: 1.8rem;
+    }
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-bottom: 2rem;
+    }
+    .pill {
+      display: flex;
+      align-items: center;
+      gap: .45rem;
+      background: var(--green-pale);
+      border: 1px solid var(--border);
+      color: var(--green-d);
+      font-size: .77rem;
+      font-weight: 600;
+      padding: .3rem .78rem;
+      border-radius: 99px;
+    }
+    .pill svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .hero-actions { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-l) 100%);
+      color: #fff;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: .1em;
+      padding: .95rem 2.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      box-shadow: 0 6px 26px rgba(0,156,59,.3);
+      transition: transform .2s, box-shadow .2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 34px rgba(0,156,59,.45); }
+    .hero-guarantee {
+      font-size: .77rem;
+      color: var(--ink-soft);
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    /* ── Painel visual do produto no hero ── */
+    .hero-visual {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      /* gradiente verde-pálido de fundo para harmonizar */
+      background: linear-gradient(145deg, #daf0e4 0%, #eef7f1 40%, #d4eaf8 100%);
+    }
+    /* arco decorativo atrás do produto */
+    .hero-visual::before {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 130%;
+      height: 130%;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at 50% 80%, rgba(0,156,59,.13) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-visual img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+      /* leve sombra no próprio produto */
+      filter: drop-shadow(0 24px 48px rgba(0,60,20,.18));
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 5rem 6vw; }
+    .section-label {
+      font-size: .67rem;
+      font-weight: 900;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: .6rem;
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--green);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    h2.section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 3.8vw, 3.6rem);
+      line-height: 1;
+      letter-spacing: .04em;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+    .muted { color: var(--ink-soft); }
+    .highlight { color: var(--green); }
+
+    /* banner único após o hero */
+    .img-banner {
+      width: 100%;
+      display: block;
+      max-height: 520px;
+      object-fit: cover;
+    }
+
+    /* ═══════════════════════════════════════
+       BENEFITS — 3×3 em telas largas
+    ═══════════════════════════════════════ */
+    .benefits { background: var(--bg-alt); }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);   /* força 3 colunas em wide */
+      gap: 1.2rem;
+      margin-top: 2.8rem;
+    }
+    .benefit-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.6rem 1.3rem;
+      box-shadow: var(--shadow);
+      transition: border-color .25s, transform .25s, box-shadow .25s;
+    }
+    .benefit-card:hover {
+      border-color: var(--green);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .benefit-icon {
+      width: 40px; height: 40px;
+      background: var(--green-pale);
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: .9rem;
+    }
+    .benefit-icon svg { width: 20px; height: 20px; stroke: var(--green); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .benefit-card h3 { font-size: .95rem; font-weight: 700; margin-bottom: .4rem; color: var(--ink); }
+    .benefit-card p { font-size: .83rem; color: var(--ink-soft); line-height: 1.6; }
+
+    /* ── HOW TO ── */
+    .howto { background: var(--bg-main); }
+    .steps-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      margin-top: 2.8rem;
+      counter-reset: step;
+    }
+    .step {
+      text-align: center;
+      counter-increment: step;
+      position: relative;
+      padding: 2.2rem 1rem 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .step::before {
+      content: counter(step, decimal-leading-zero);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      color: rgba(0,156,59,.1);
+      position: absolute;
+      top: .4rem; right: .8rem;
+      line-height: 1;
+    }
+    .step h3 { font-size: .9rem; font-weight: 700; color: var(--green-d); margin-bottom: .4rem; }
+    .step p { font-size: .82rem; color: var(--ink-soft); line-height: 1.6; }
+
+    /* ── COMPOSIÇÃO ── */
+    .composition { background: var(--bg-alt); position: relative; overflow: hidden; }
+    .composition::before {
+      content:'';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 380px; height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,156,59,.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .comp-hero-card {
+      margin-top: 2.8rem;
+      background: linear-gradient(120deg, #e6f5ec 0%, #dce8f5 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem 2.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      box-shadow: var(--shadow);
+    }
+    .comp-fluor-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 7vw, 5.5rem);
+      line-height: 1;
+      color: var(--green-d);
+      letter-spacing: .02em;
+      flex-shrink: 0;
+    }
+    .comp-fluor-num span { font-size: 45%; vertical-align: super; color: var(--green); }
+    .comp-fluor-text h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.55rem;
+      letter-spacing: .06em;
+      color: var(--ink);
+      margin-bottom: .4rem;
+    }
+    .comp-fluor-text p { font-size: .9rem; color: var(--ink-mid); line-height: 1.65; max-width: 560px; }
+    .ing-grid {
+      margin-top: 1.8rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .ing-cell { background: var(--bg-card); padding: 1.15rem 1.3rem; transition: background .2s; }
+    .ing-cell:hover { background: var(--green-pale); }
+    .ing-cell-role { font-size: .67rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: var(--green); margin-bottom: .28rem; }
+    .ing-cell-name { font-size: .92rem; font-weight: 700; color: var(--ink); margin-bottom: .28rem; }
+    .ing-cell-desc { font-size: .81rem; color: var(--ink-soft); line-height: 1.55; }
+    .formula-box {
+      margin-top: 1.8rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem 1.8rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      box-shadow: var(--shadow);
+    }
+    .formula-col strong { display: block; font-size: .67rem; font-weight: 900; letter-spacing: .17em; text-transform: uppercase; color: var(--green); margin-bottom: .5rem; }
+    .formula-col p { font-size: .78rem; color: var(--ink-soft); line-height: 1.72; font-family: monospace; }
+
+    /* ── TABELA COMPARATIVA ── */
+    .comparison { background: var(--bg-main); }
+    .table-wrap { overflow-x: auto; border-radius: 14px; border: 1px solid var(--border); box-shadow: var(--shadow); -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: .875rem; min-width: 540px; }
+    thead tr { background: linear-gradient(90deg, var(--green-d) 0%, var(--green) 100%); }
+    thead th { padding: 1rem 1.2rem; text-align: center; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: .1em; color: #fff; white-space: nowrap; }
+    thead th:first-child { text-align: left; }
+    .col-bolso { background: rgba(0,156,59,.06) !important; }
+    thead th.col-bolso { position: relative; padding-top: 2rem; background: rgba(0,156,59,.2) !important; }
+    thead th.col-bolso::before { content: 'NOSSA ESCOLHA'; position: absolute; top: 0; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--blue); font-size: .54rem; font-weight: 900; letter-spacing: .13em; padding: .18rem .65rem; border-radius: 0 0 4px 4px; white-space: nowrap; }
+    tbody tr { border-bottom: 1px solid var(--border); background: #fff; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:nth-child(even) { background: #fafcf9; }
+    tbody tr:hover { background: var(--green-pale); }
+    tbody td { padding: .82rem 1.2rem; text-align: center; color: var(--ink-mid); vertical-align: middle; }
+    tbody td:first-child { text-align: left; font-weight: 600; color: var(--ink); }
+    .check { color: var(--green-d); font-weight: 700; }
+    .cross { color: #c0392b; font-weight: 700; }
+    .neutral { color: #9aaa9a; }
+    .table-note { margin-top: .85rem; font-size: .71rem; color: var(--ink-soft); line-height: 1.65; }
+
+    /* ═══════════════════════════════════════
+       PRICING — cards iguais + responsivo
+    ═══════════════════════════════════════ */
+    .pricing { background: var(--bg-alt); }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+      margin-top: 2.8rem;
+      align-items: stretch;          /* mesma altura */
+    }
+    .price-card {
+      background: var(--bg-card);
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 1.8rem 1.4rem 1.6rem;
+      text-align: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow);
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+      /* garante altura mínima igual entre cards */
+      min-height: 560px;
+    }
+    .price-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--green);
+      box-shadow: var(--shadow-lg);
+    }
+    .price-card.featured {
+      border-color: var(--green);
+      background: linear-gradient(165deg, #e8f7ee 0%, #eaf0fa 100%);
+    }
+    .card-badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--blue);
+      font-size: .6rem;
+      font-weight: 900;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      padding: .26rem .88rem;
+      border-radius: 99px;
+      white-space: nowrap;
+    }
+    .card-badge.green-badge { background: var(--green); color: #fff; }
+    .price-card-img {
+      width: 100%;
+      max-width: 180px;
+      height: 140px;
+      object-fit: contain;
+      margin: 0 auto .8rem;
+      display: block;
+    }
+    .price-card .qty { font-size: .69rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: var(--green); margin-bottom: .3rem; }
+    .price-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: .05em; margin-bottom: .2rem; color: var(--ink); }
+    .price-amount { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: var(--green-d); letter-spacing: .02em; line-height: 1.1; margin-bottom: .2rem; }
+    .price-amount sup { font-size: .95rem; vertical-align: super; }
+    .price-period { font-size: .75rem; color: var(--ink-soft); margin-bottom: 1rem; min-height: 2.2em; }
+    .price-period strong { color: var(--green); }
+    .price-card ul { list-style: none; margin-bottom: 1.1rem; text-align: left; flex: 1; }
+    .price-card ul li { padding: .28rem 0; font-size: .8rem; color: var(--ink-mid); display: flex; align-items: flex-start; gap: .45rem; border-bottom: 1px solid var(--border); }
+    .price-card ul li:last-child { border-bottom: none; }
+    .price-card ul li::before { content: '✓'; color: var(--green); font-weight: 900; flex-shrink: 0; }
+    .seal-img { width: 72px; margin: 0 auto .8rem; display: block; }
+
+    /* BOTÕES YAMPI
+       #yampi-kit1 → link kit 1 unidade
+       #yampi-kit3 → link kit 3 unidades
+       #yampi-kit6 → link kit 6 unidades
+       #yampi-main → link CTA principal  */
+    .btn-buy {
+      display: block;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-l) 100%);
+      color: #fff;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: .1em;
+      padding: .82rem;
+      border-radius: 8px;
+      text-decoration: none;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0,156,59,.22);
+      transition: opacity .2s, transform .15s;
+      margin-top: auto;
+    }
+    .btn-buy:hover { opacity: .87; transform: translateY(-1px); }
+
+    /* ═══════════════════════════════════════
+       FAQ com imagem ao lado (desktop)
+    ═══════════════════════════════════════ */
+    .faq { background: var(--bg-main); }
+    .faq-inner {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 2.4rem;
+    }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--ink);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 700;
+      font-size: .92rem;
+      padding: 1.1rem 0;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      transition: color .2s;
+    }
+    .faq-q:hover { color: var(--green); }
+    .faq-icon { font-size: 1.1rem; color: var(--green); flex-shrink: 0; transition: transform .3s; }
+    .faq-a { font-size: .86rem; color: var(--ink-mid); line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height .38s ease, padding .38s ease; }
+    .faq-item.open .faq-a { max-height: 240px; padding-bottom: 1.1rem; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    /* imagem decorativa ao lado do FAQ */
+    .faq-visual {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      aspect-ratio: 3/4;
+      background: linear-gradient(145deg, #daf0e4 0%, #d4eaf8 100%);
+    }
+    .faq-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 10%;
+      display: block;
+    }
+    /* badge flutuante sobre a imagem do FAQ */
+    .faq-visual-badge {
+      position: absolute;
+      bottom: 1.4rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,105,41,.92);
+      color: #fff;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: .1em;
+      padding: .6rem 1.4rem;
+      border-radius: 99px;
+      white-space: nowrap;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ═══════════════════════════════════════
+       CTA FINAL — degradê verde + azul + dourado
+    ═══════════════════════════════════════ */
+    .cta-final {
+      text-align: center;
+      padding: 5.5rem 6vw;
+      position: relative;
+      overflow: hidden;
+      /* degradê tricolor: verde Brasil → azul → dourado */
+      background: linear-gradient(
+        135deg,
+        #006929 0%,
+        #009c3b 25%,
+        #002776 60%,
+        #1a3a8f 78%,
+        #c9a800 100%
+      );
+    }
+    .cta-final::before {
+      content:'';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 110%, rgba(254,223,0,.18) 0%, transparent 60%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .cta-final h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      letter-spacing: .06em;
+      margin-bottom: 1rem;
+      color: #fff;
+      position: relative;
+    }
+    .cta-final p {
+      font-size: 1rem;
+      color: rgba(255,255,255,.78);
+      margin-bottom: 2.5rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      line-height: 1.7;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--blue);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: .1em;
+      padding: 1rem 2.8rem;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      position: relative;
+      box-shadow: 0 8px 30px rgba(254,223,0,.35);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(254,223,0,.5); }
+
+    /* ═══════════════════════════════════════
+       FOOTER com redes sociais + newsletter
+    ═══════════════════════════════════════ */
+    footer {
+      background: #1a2e1e;
+      border-top: 3px solid var(--green);
+      padding: 3rem 6vw 1.5rem;
+      color: #5a7a5a;
+      font-size: .8rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .footer-col h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: .1em;
+      color: #c0d8c0;
+      margin-bottom: .9rem;
+    }
+    .footer-col p { font-size: .79rem; color: #4a6a4a; line-height: 1.6; }
+    /* links de navegação */
+    .footer-nav { list-style: none; }
+    .footer-nav li { margin-bottom: .45rem; }
+    .footer-nav a { color: #4a6a4a; text-decoration: none; font-size: .79rem; transition: color .2s; }
+    .footer-nav a:hover { color: #6ecf85; }
+    /* ícones sociais */
+    .social-icons {
+      display: flex;
+      gap: .7rem;
+      margin-top: .2rem;
+      flex-wrap: wrap;
+    }
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .44rem .9rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      transition: opacity .2s, transform .15s;
+    }
+    .social-btn:hover { opacity: .85; transform: translateY(-2px); }
+    .social-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .social-btn.instagram { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; }
+    .social-btn.telegram  { background: #229ED9; color: #fff; }
+    .social-btn.whatsapp  { background: #25D366; color: #fff; }
+    /* newsletter */
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      margin-top: .4rem;
+    }
+    .newsletter-form input[type="email"] {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 6px;
+      padding: .65rem .9rem;
+      color: #c0d8c0;
+      font-family: 'Barlow', sans-serif;
+      font-size: .82rem;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .newsletter-form input[type="email"]::placeholder { color: #3a5a3a; }
+    .newsletter-form input[type="email"]:focus { border-color: var(--green); }
+    .newsletter-form button {
+      background: var(--green);
+      color: #fff;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: .95rem;
+      letter-spacing: .1em;
+      padding: .65rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .newsletter-form button:hover { background: var(--green-l); }
+    .newsletter-note { font-size: .68rem; color: #2a4a2a; margin-top: .2rem; }
+    /* rodapé inferior */
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding-top: 1.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: .8rem;
+      font-size: .73rem;
+      color: #2a4a2a;
+    }
+    .footer-bottom a { color: #2a4a2a; text-decoration: none; transition: color .2s; }
+    .footer-bottom a:hover { color: #6ecf85; }
+    .footer-legal { display: flex; gap: 1.4rem; }
+
+    /* ── SCROLL ANIM ── */
+    .anim { opacity: 0; transform: translateY(20px); transition: opacity .55s ease, transform .55s ease; }
+    .anim.visible { opacity: 1; transform: translateY(0); }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVIDADE
+    ═══════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 1024px) {
+      .steps-row { grid-template-columns: repeat(2, 1fr); }
+      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      /* hero */
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-visual { display: none; }
+      .hero-text { padding: 3rem 6vw; text-align: center; align-items: center; }
+      .hero-sub { text-align: center; }
+      .hero-pills { justify-content: center; }
+      .hero-actions { justify-content: center; flex-direction: column; align-items: center; }
+
+      /* pricing: 1 coluna centrada */
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .price-card { min-height: auto; }
+
+      /* faq */
+      .faq-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .faq-visual { aspect-ratio: 16/7; max-height: 260px; }
+
+      .formula-box { grid-template-columns: 1fr; gap: 1.2rem; }
+      .comp-hero-card { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+
+    @media (max-width: 680px) {
+      section { padding: 3rem 5vw; }
+      nav { padding: .7rem 5vw; }
+      .nav-logo { font-size: 1.2rem; }
+      .nav-cta { font-size: .74rem; padding: .44rem 1rem; }
+
+      .benefits-grid { grid-template-columns: 1fr; }
+      .steps-row { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .ing-grid { grid-template-columns: 1fr; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+      table { font-size: .79rem; }
+      thead th, tbody td { padding: .68rem .85rem; }
+    }
+
+    @media (max-width: 480px) {
+      .steps-row { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.6rem; }
+      .btn-primary { width: 100%; text-align: center; font-size: 1rem; padding: .88rem 1rem; }
+      .price-card { padding: 1.6rem 1.1rem 1.4rem; }
+      .price-card-img { height: 120px; }
+      .price-amount { font-size: 2rem; }
+      .social-icons { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>&#127463;&#127479; CREME DENTAL BOLSONARO</span>
+    <span>&#11088; 1.200 PPM DE FL&#218;OR ATIVO</span>
+    <span>&#10003; PROTE&#199;&#195;O DI&#193;RIA CONTRA C&#193;RIES</span>
+    <span>PARA O BRASIL VOLTAR A SORRIR</span>
+    <span>&#128666; FRETE GR&#193;TIS NO KIT 6 UNIDADES</span>
+    <span>&#127463;&#127479; CREME DENTAL BOLSONARO</span>
+    <span>&#11088; 1.200 PPM DE FL&#218;OR ATIVO</span>
+    <span>&#10003; PROTE&#199;&#195;O DI&#193;RIA CONTRA C&#193;RIES</span>
+    <span>PARA O BRASIL VOLTAR A SORRIR</span>
+    <span>&#128666; FRETE GR&#193;TIS NO KIT 6 UNIDADES</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Bolsonaro <em>Dental</em></span>
+  <a href="#kits" class="nav-cta">Comprar Agora</a>
+</nav>
+
+<!-- ══ HERO (OFF-WHITE) ══ -->
+<section class="hero" id="inicio">
+  <div class="hero-text">
+    <div class="hero-badge">&#127463;&#127479; Produto Nacional Premium</div>
+    <h1>Para garantir<br>o <em>Sorriso</em><br>do Brasil.</h1>
+    <p class="hero-slogan">Para o Brasil voltar a sorrir</p>
+    <p class="hero-sub">Dentes limpos, h&#225;lito refrescante e prote&#231;&#227;o contra c&#225;ries &#8212; com a f&#243;rmula que o Brasil merece.</p>
+    <div class="hero-pills">
+      <span class="pill">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        1.200 ppm de Fl&#250;or
+      </span>
+      <span class="pill">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        Sabor Menta Suave
+      </span>
+      <span class="pill">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        Para toda a fam&#237;lia
+      </span>
+    </div>
+    <div class="hero-actions">
+      <a href="#kits" class="btn-primary">QUERO MEU CREME DENTAL AGORA</a>
+      <div class="hero-guarantee">&#128274; Compra 100% segura &amp; garantida</div>
+    </div>
+  </div>
+  <!-- imagem do produto com fundo verde-pálido -->
+  <div class="hero-visual">
+    <img
+      src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/01.webp"
+      alt="Creme Dental Bolsonaro"
+      loading="eager"
+    />
+  </div>
+</section>
+
+<!-- BANNER único (apenas DOBRA-3) -->
+<img
+  src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/DOBRA-3.webp"
+  alt="Creme Dental Bolsonaro &#8212; benef&#237;cios"
+  class="img-banner"
+  loading="lazy"
+/>
+
+<!-- ══ BENEFITS (3×3) ══ -->
+<section class="benefits" id="beneficios">
+  <div class="section-label">Por que escolher</div>
+  <h2 class="section-title">Benef&#237;cios <span class="highlight">Principais</span></h2>
+  <p class="muted" style="max-width:540px">Desenvolvido para quem valoriza um sorriso bem cuidado e quer qualidade em cada escova&#231;&#227;o.</p>
+  <div class="benefits-grid">
+
+    <div class="benefit-card anim">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 015 5c0 5.25-5 11-5 11S7 12.25 7 7a5 5 0 015-5z" stroke-width="2"/></svg>
+      </div>
+      <h3>Dentes Limpos</h3>
+      <p>Remove eficientemente a placa bacteriana, deixando os dentes visivelmente mais limpos com o uso regular.</p>
+    </div>
+
+    <div class="benefit-card anim">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 19.29 3.32 20.13 4.09 21 5 21h14c.91 0 1.68-.87 1.18-1.71C18.1 16.17 16 10 17 8z"/></svg>
+      </div>
+      <h3>H&#225;lito Fresco</h3>
+      <p>Mentol natural proporciona sensa&#231;&#227;o de frescor duradouro, eliminando o mau h&#225;lito desde a primeira escova&#231;&#227;o.</p>
+    </div>
+
+    <div class="benefit-card anim">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Prote&#231;&#227;o Antic&#225;rie</h3>
+      <p>Com 1.200 ppm de fl&#250;or ativo, fortalece o esmalte e cria barreira protetora contra c&#225;ries.</p>
+    </div>
+
+    <div class="benefit-card anim">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg>
+      </div>
+      <h3>Confian&#231;a ao Sorrir</h3>
+      <p>Sensa&#231;&#227;o de limpeza prolongada para voc&#234; sorrir com confian&#231;a em qualquer momento do dia.</p>
+    </div>
+
+    <div class="benefit-card anim">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <h3>Toda a Fam&#237;lia</h3>
+      <p>Indicado para adultos e crian&#231;as acima de 6 anos. Sabor suave agradável para diferentes paladares.</p>
+    </div>
+
+    <div class="benefit-card anim">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <h3>Qualidade Nacional</h3>
+      <p>Produzido com tecnologia de ponta e ingredientes selecionados. Orgulhosamente brasileiro.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ HOW TO ══ -->
+<section class="howto" id="como-usar">
+  <div class="section-label">Passo a Passo</div>
+  <h2 class="section-title">4 Passos para o <span class="highlight">Sorriso Perfeito</span></h2>
+  <div class="steps-row">
+    <div class="step anim">
+      <h3>Coloque na escova</h3>
+      <p>Aplique uma por&#231;&#227;o do tamanho de uma ervilha na escova de dentes limpa.</p>
+    </div>
+    <div class="step anim">
+      <h3>Escove por 2&#8211;3 min</h3>
+      <p>Cubra todas as superf&#237;cies dos dentes em movimentos circulares suaves.</p>
+    </div>
+    <div class="step anim">
+      <h3>Repita 3&#215; ao dia</h3>
+      <p>Ap&#243;s cada refei&#231;&#227;o &#8212; especialmente ao acordar e antes de dormir.</p>
+    </div>
+    <div class="step anim">
+      <h3>Sinta a diferen&#231;a</h3>
+      <p>H&#225;lito renovado e sensa&#231;&#227;o de limpeza profunda desde o primeiro uso.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMPOSIÇÃO ══ -->
+<section class="composition" id="composicao">
+  <div class="section-label">Transpar&#234;ncia e Qualidade</div>
+  <h2 class="section-title">Nossa <span class="highlight">Composi&#231;&#227;o</span></h2>
+  <p class="muted" style="max-width:580px">Ingredientes selecionados com crit&#233;rio para oferecer m&#225;xima efic&#225;cia e seguran&#231;a no seu dia a dia.</p>
+
+  <div class="comp-hero-card anim">
+    <div class="comp-fluor-num">1.200<span>ppm</span></div>
+    <div class="comp-fluor-text">
+      <h3>Fluoreto de S&#243;dio Ativo</h3>
+      <p>A concentra&#231;&#227;o ideal de fl&#250;or para prote&#231;&#227;o antic&#225;rie efetiva em adultos e crian&#231;as acima de 6 anos, dentro dos limites seguros definidos pela ANVISA e pela Associa&#231;&#227;o Brasileira de Odontologia. O fl&#250;or mineraliza o esmalte dent&#225;rio, tornando-o mais resistente ao ataque dos &#225;cidos produzidos pelas bact&#233;rias orais.</p>
+    </div>
+  </div>
+
+  <div class="ing-grid anim">
+    <div class="ing-cell"><div class="ing-cell-role">Base</div><div class="ing-cell-name">&#193;gua (Aqua)</div><div class="ing-cell-desc">Base da f&#243;rmula, garante a textura cremosa e hom&#244;genea do produto.</div></div>
+    <div class="ing-cell"><div class="ing-cell-role">Abrasivo Suave</div><div class="ing-cell-name">Carbonato de C&#225;lcio</div><div class="ing-cell-desc">Remove manchas e placa bacteriana sem agredir o esmalte dent&#225;rio.</div></div>
+    <div class="ing-cell"><div class="ing-cell-role">Umectante</div><div class="ing-cell-name">Glicerol (Glycerin)</div><div class="ing-cell-desc">Mant&#233;m a textura macia e evita o ressecamento da pasta com o tempo.</div></div>
+    <div class="ing-cell"><div class="ing-cell-role">Espumante</div><div class="ing-cell-name">Laurilsulfato de S&#243;dio</div><div class="ing-cell-desc">Potencializa a limpeza e dispersa uniformemente os ingredientes na boca.</div></div>
+    <div class="ing-cell"><div class="ing-cell-role">Espessante</div><div class="ing-cell-name">Carmelose S&#243;dica</div><div class="ing-cell-desc">Derivado de celulose natural que confere consist&#234;ncia e estabilidade ao creme.</div></div>
+    <div class="ing-cell"><div class="ing-cell-role">Ativo Antic&#225;rie</div><div class="ing-cell-name">Monofluorofosfato de S&#243;dio</div><div class="ing-cell-desc">Fonte adicional de fl&#250;or que refor&#231;a a prote&#231;&#227;o e remineraliza o esmalte.</div></div>
+    <div class="ing-cell"><div class="ing-cell-role">Frescor</div><div class="ing-cell-name">Aroma + Mentol</div><div class="ing-cell-desc">Respons&#225;veis pela sensa&#231;&#227;o refrescante e pelo h&#225;lito agradável de longa dura&#231;&#227;o.</div></div>
+    <div class="ing-cell"><div class="ing-cell-role">Controle de T&#225;rtaro</div><div class="ing-cell-name">Pirofosfatos (Di e Tetrasss&#243;dico)</div><div class="ing-cell-desc">Auxiliam no controle do t&#225;rtaro e na estabiliza&#231;&#227;o qu&#237;mica da f&#243;rmula.</div></div>
+    <div class="ing-cell"><div class="ing-cell-role">Conservante</div><div class="ing-cell-name">&#193;lcool Benz&#237;lico</div><div class="ing-cell-desc">Preserva a integridade e a seguran&#231;a microbiol&#243;gica do produto.</div></div>
+    <div class="ing-cell"><div class="ing-cell-role">Adocicante</div><div class="ing-cell-name">Sacarina de S&#243;dio</div><div class="ing-cell-desc">Confere sabor agradável sem comprometer a sa&#250;de bucal ou elevar calorias.</div></div>
+    <div class="ing-cell"><div class="ing-cell-role">Estabilizante</div><div class="ing-cell-name">Silicato de S&#243;dio</div><div class="ing-cell-desc">Contribui para a estabilidade da textura e para o brilho dos dentes.</div></div>
+  </div>
+
+  <div class="formula-box anim">
+    <div class="formula-col">
+      <strong>F&#243;rmula Completa &#8212; INCI (Internacional)</strong>
+      <p>Aqua, Calcium Carbonate, Glycerin, Sodium Lauryl Sulfate, Cellulose Gum, Sodium Monofluorophosphate, Aroma, Benzyl Alcohol, Disodium Pyrophosphate, Sodium Saccharin, Tetrasodium Pyrophosphate, Sodium Silicate, Menthol.</p>
+    </div>
+    <div class="formula-col">
+      <strong>Denomina&#231;&#227;o Comum Brasileira &#8212; ANVISA</strong>
+      <p>&#193;gua, Carbonato de C&#225;lcio, Glicerol, Laurilsulfato de S&#243;dio, Carmelose S&#243;dica, Monofluorofosfato de S&#243;dio, Aroma, &#193;lcool Benz&#237;lico, Pirofosfato Diss&#243;dico, Sacarina de S&#243;dio, Pirofosfato Tetrasss&#243;dico, Silicato de S&#243;dio, Mentol.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMPARATIVO ══ -->
+<section class="comparison" id="comparativo">
+  <div class="section-label">Comparativo de Mercado</div>
+  <h2 class="section-title">Por Que Somos <span class="highlight">a Melhor Escolha</span></h2>
+  <p class="muted" style="max-width:580px;margin-bottom:2.8rem">Veja como o Creme Dental Bolsonaro se compara &#224;s principais marcas em crit&#233;rios que realmente importam.</p>
+
+  <div class="table-wrap anim">
+    <table>
+      <thead>
+        <tr>
+          <th>Crit&#233;rio</th>
+          <th class="col-bolso">Bolsonaro</th>
+          <th>L&#237;der de Mercado 1</th>
+          <th>L&#237;der de Mercado 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Concentra&#231;&#227;o de Fl&#250;or</td><td class="col-bolso"><strong style="color:var(--green-d)">1.200 ppm</strong></td><td>1.050 ppm</td><td>1.000 ppm</td></tr>
+        <tr><td>Prote&#231;&#227;o Antic&#225;rie</td><td class="col-bolso"><span class="check">Sim</span></td><td><span class="check">Sim</span></td><td><span class="check">Sim</span></td></tr>
+        <tr><td>Controle de T&#225;rtaro</td><td class="col-bolso"><span class="check">Pirofosfatos Ativos</span></td><td><span class="check">Sim</span></td><td><span class="cross">N&#227;o</span></td></tr>
+        <tr><td>Branqueamento</td><td class="col-bolso"><span class="check">Carbonato de C&#225;lcio</span></td><td><span class="check">Sim</span></td><td><span class="neutral">Leve</span></td></tr>
+        <tr><td>Frescor (Mentol)</td><td class="col-bolso"><span class="check">Mentol Natural</span></td><td><span class="check">Sim</span></td><td><span class="check">Ervas Naturais</span></td></tr>
+        <tr><td>Composi&#231;&#227;o Transparente</td><td class="col-bolso"><span class="check">Lista completa publicada</span></td><td><span class="neutral">Parcial</span></td><td><span class="neutral">Parcial</span></td></tr>
+        <tr><td>Produ&#231;&#227;o Nacional</td><td class="col-bolso"><span class="check">100% Brasileiro</span></td><td><span class="cross">Marca Estrangeira</span></td><td><span class="cross">Marca Estrangeira</span></td></tr>
+        <tr><td>Indicado para crian&#231;as +6</td><td class="col-bolso"><span class="check">Sim</span></td><td><span class="check">Sim</span></td><td><span class="check">Sim</span></td></tr>
+        <tr><td>Identidade Nacional</td><td class="col-bolso"><strong style="color:var(--green-d)">S&#237;mbolo do Brasil</strong></td><td><span class="cross">Marca Estrangeira</span></td><td><span class="cross">Marca Estrangeira</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="table-note">* Comparativo elaborado com base em informa&#231;&#245;es p&#250;blicas dispon&#237;veis. "L&#237;der de Mercado 1" e "L&#237;der de Mercado 2" referem-se &#224;s marcas l&#237;deres do segmento no Brasil.</p>
+</section>
+
+<!-- ══ PRICING — cards iguais ══ -->
+<section class="pricing" id="kits">
+  <div class="section-label">Escolha seu Kit</div>
+  <h2 class="section-title">Kits com <span class="highlight">Melhor Custo-Benef&#237;cio</span></h2>
+  <p class="muted" style="max-width:480px">Quanto mais voc&#234; leva, mais voc&#234; economiza. Garanta o seu agora.</p>
+
+  <div class="pricing-grid">
+
+    <!-- KIT 1 -->
+    <div class="price-card anim">
+      <img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/01.webp" alt="1 unidade" class="price-card-img" loading="lazy"/>
+      <div class="qty">Tratamento 1 m&#234;s</div>
+      <h3>1 Unidade</h3>
+      <div class="price-amount"><sup>R$</sup>29<sup>,90</sup></div>
+      <div class="price-period">+ frete calculado no checkout</div>
+      <ul>
+        <li>1 tubo de creme dental</li>
+        <li>F&#243;rmula com 1.200 ppm de fl&#250;or</li>
+        <li>Sabor menta suave</li>
+        <li>Garantia de satisfa&#231;&#227;o</li>
+      </ul>
+      <img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/selogarantia-2-min.png" alt="Selo garantia" class="seal-img" loading="lazy"/>
+      <!-- YAMPI: troque o href pelo link do kit 1 na sua loja Yampi -->
+      <a id="yampi-kit1" href="SEU_LINK_YAMPI_KIT1_AQUI" class="btn-buy">COMPRAR AGORA</a>
+    </div>
+
+    <!-- KIT 3 -->
+    <div class="price-card featured anim">
+      <div class="card-badge">MAIS POPULAR</div>
+      <img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/3-unidades.webp" alt="3 unidades" class="price-card-img" loading="lazy"/>
+      <div class="qty">Tratamento 5 meses</div>
+      <h3>3 Unidades</h3>
+      <div class="price-amount"><sup>R$</sup>79<sup>,90</sup></div>
+      <div class="price-period">R$ 26,63 por unidade &#8212; <strong>voc&#234; economiza!</strong></div>
+      <ul>
+        <li>3 tubos de creme dental</li>
+        <li>F&#243;rmula com 1.200 ppm de fl&#250;or</li>
+        <li>Sabor menta suave</li>
+        <li>Garantia de satisfa&#231;&#227;o</li>
+        <li>Estoque garantido por meses</li>
+      </ul>
+      <img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/selogarantia-2-min.png" alt="Selo garantia" class="seal-img" loading="lazy"/>
+      <!-- YAMPI: troque o href pelo link do kit 3 na sua loja Yampi -->
+      <a id="yampi-kit3" href="SEU_LINK_YAMPI_KIT3_AQUI" class="btn-buy">COMPRAR AGORA</a>
+    </div>
+
+    <!-- KIT 6 -->
+    <div class="price-card anim">
+      <div class="card-badge green-badge">MELHOR VALOR</div>
+      <img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/06unid.webp" alt="6 unidades" class="price-card-img" loading="lazy"/>
+      <div class="qty">Tratamento 12 meses</div>
+      <h3>6 Unidades</h3>
+      <div class="price-amount"><sup>R$</sup>149<sup>,90</sup></div>
+      <div class="price-period">R$ 24,98 por unidade + <strong>FRETE GR&#193;TIS</strong></div>
+      <ul>
+        <li>6 tubos de creme dental</li>
+        <li>F&#243;rmula com 1.200 ppm de fl&#250;or</li>
+        <li>Sabor menta suave</li>
+        <li>Garantia de satisfa&#231;&#227;o</li>
+        <li>Frete gr&#225;tis para todo o Brasil</li>
+        <li>Melhor custo por unidade</li>
+      </ul>
+      <img src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/selogarantia-2-min.png" alt="Selo garantia" class="seal-img" loading="lazy"/>
+      <!-- YAMPI: troque o href pelo link do kit 6 na sua loja Yampi -->
+      <a id="yampi-kit6" href="SEU_LINK_YAMPI_KIT6_AQUI" class="btn-buy">COMPRAR AGORA</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ FAQ com imagem ao lado ══ -->
+<section class="faq" id="faq">
+  <div class="section-label">Tire suas D&#250;vidas</div>
+  <h2 class="section-title">Perguntas <span class="highlight">Frequentes</span></h2>
+
+  <div class="faq-inner">
+    <!-- lista de perguntas -->
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">O creme dental realmente ajuda na limpeza dos dentes? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Sim! Sua f&#243;rmula foi desenvolvida para promover uma escova&#231;&#227;o eficiente com o Carbonato de C&#225;lcio como abrasivo suave e o Laurilsulfato de S&#243;dio para espuma&#231;&#227;o e remo&#231;&#227;o de placa bacteriana.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">O sabor &#233; forte? <span class="faq-icon">+</span></button>
+        <div class="faq-a">N&#227;o. Possui sabor suave de menta, refrescante e agradável, adequado para toda a fam&#237;lia, inclusive para quem n&#227;o aprecia sabores muito intensos.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Pode ser usado por toda a fam&#237;lia? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Sim, &#233; indicado para uso di&#225;rio de adultos e crian&#231;as acima de 6 anos, sob supervis&#227;o de adultos para controlar a quantidade utilizada.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Qual a quantidade ideal de uso? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Uma por&#231;&#227;o do tamanho de uma ervilha j&#225; &#233; suficiente para uma escova&#231;&#227;o eficiente. Escove por 2 a 3 minutos, pelo menos 3 vezes ao dia.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Em quanto tempo percebo diferen&#231;a no frescor? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Desde o primeiro uso voc&#234; j&#225; sente o h&#225;lito mais refrescante e agradável, gra&#231;as ao Mentol e ao Aroma presentes na f&#243;rmula.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">O produto cont&#233;m fl&#250;or? &#201; seguro? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Sim, cont&#233;m 1.200 ppm de fl&#250;or (Fluoreto de S&#243;dio e Monofluorofosfato de S&#243;dio), concentra&#231;&#227;o dentro dos limites seguros recomendados pela ANVISA para prote&#231;&#227;o antic&#225;rie efetiva em adultos e crian&#231;as acima de 6 anos.</div>
+      </div>
+    </div>
+
+    <!-- imagem decorativa -->
+    <div class="faq-visual anim">
+      <img
+        src="https://cremedentalbolsonaro.shop/wp-content/uploads/2025/10/DOBRA-3.webp"
+        alt="Creme Dental Bolsonaro"
+        loading="lazy"
+      />
+      <div class="faq-visual-badge">Sorriso com Orgulho &#127463;&#127479;</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA FINAL — degradê tricolor ══ -->
+<section class="cta-final" id="comprar">
+  <h2>Para o Brasil<br>Voltar a Sorrir</h2>
+  <p>Mais do que um produto, o Bolsonaro Creme Dental &#233; um s&#237;mbolo de cuidado e orgulho nacional. Transforme sua rotina de higiene em um momento de bem-estar.</p>
+  <!-- YAMPI: troque o href pelo link principal da sua loja Yampi -->
+  <a id="yampi-main" href="SEU_LINK_YAMPI_AQUI" class="btn-gold">FAZER PARTE DO MOVIMENTO AGORA</a>
+</section>
+
+<!-- ══ FOOTER com redes sociais + newsletter ══ -->
+<footer>
+  <div class="footer-grid">
+
+    <!-- Coluna 1: marca -->
+    <div class="footer-col">
+      <h4>Bolsonaro Dental</h4>
+      <p>Creme dental nacional com f&#243;rmula de alta qualidade, desenvolvido para garantir o sorriso do Brasil. Produto com 1.200 ppm de fl&#250;or ativo.</p>
+    </div>
+
+    <!-- Coluna 2: links -->
+    <div class="footer-col">
+      <h4>Links &#218;teis</h4>
+      <ul class="footer-nav">
+        <li><a href="#beneficios">Benef&#237;cios</a></li>
+        <li><a href="#composicao">Composi&#231;&#227;o</a></li>
+        <li><a href="#comparativo">Comparativo</a></li>
+        <li><a href="#kits">Kits e Pre&#231;os</a></li>
+        <li><a href="#faq">Perguntas Frequentes</a></li>
+        <li><a href="#">Termos de Uso</a></li>
+        <li><a href="#">Pol&#237;tica de Privacidade</a></li>
+      </ul>
+    </div>
+
+    <!-- Coluna 3: redes + newsletter -->
+    <div class="footer-col">
+      <h4>Siga-nos</h4>
+      <div class="social-icons">
+        <!-- Substitua # pelos links reais das redes sociais -->
+        <a href="#" class="social-btn instagram" aria-label="Instagram" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          Instagram
+        </a>
+        <a href="#" class="social-btn telegram" aria-label="Telegram" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.448 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.17 13.668l-2.95-.924c-.64-.204-.657-.64.136-.954l11.57-4.461c.537-.194 1.006.131.968.892z"/>
+          </svg>
+          Telegram
+        </a>
+        <a href="#" class="social-btn whatsapp" aria-label="WhatsApp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+
+      <h4 style="margin-top:1.6rem">Newsletter</h4>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Seu melhor e-mail" autocomplete="email" />
+        <button type="button" onclick="handleNewsletter(this)">QUERO RECEBER NOVIDADES</button>
+        <p class="newsletter-note">Sem spam. Apenas novidades e ofertas exclusivas.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <span>2025 &copy; Bolsonaro Creme Dental &middot; Todos os direitos reservados</span>
+    <div class="footer-legal">
+      <a href="#">Termos de Uso</a>
+      <a href="#">Pol&#237;tica de Privacidade</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  /* Newsletter (stub — conecte ao seu ESP) */
+  function handleNewsletter(btn) {
+    const input = btn.previousElementSibling;
+    const email = input.value.trim();
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!re.test(email)) {
+      input.style.borderColor = '#c0392b';
+      input.focus();
+      return;
+    }
+    input.style.borderColor = '';
+    btn.textContent = '✓ INSCRITO COM SUCESSO!';
+    btn.style.background = '#006929';
+    btn.disabled = true;
+    input.disabled = true;
+    // Integre aqui seu ESP (Mailchimp, ActiveCampaign, etc.)
+    // fetch('/api/newsletter', { method:'POST', body: JSON.stringify({email}) });
+  }
+
+  /* Scroll reveal */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 55);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.anim').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
